@@ -1,5 +1,5 @@
 'use client'
-
+ 
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Zap, ArrowRight, Play, Trophy, Users, TrendingUp } from 'lucide-react'

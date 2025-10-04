@@ -1,5 +1,5 @@
 'use client'
-
+ 
 import { useAccount } from 'wagmi'
 import { useCanClaim, useCalculateWinnings, useClaim } from '@/lib/hooks'
 import { Button } from '@/components/ui/button'
