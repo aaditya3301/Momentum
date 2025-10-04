@@ -24,10 +24,9 @@ export function NetworkSwitchButton({ className, variant = 'outline' }: NetworkS
       const success = await switchToHellaNetwork()
       if (success) {
         // Network switched successfully
-        console.log('Successfully switched to Hella network')
       }
     } catch (error) {
-      console.error('Failed to switch network:', error)
+      // Network switch failed
     } finally {
       setIsSwitching(false)
     }

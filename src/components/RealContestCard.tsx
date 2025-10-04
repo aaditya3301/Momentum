@@ -29,18 +29,6 @@ export function RealContestCard({ contestAddress, index = 0 }: RealContestCardPr
     isActive,
     timeRemaining
   } = contestInfo
-  
-  // Debug logging
-  console.log(`🃏 RealContestCard Debug (${contestAddress}):`, {
-    contestAddress,
-    hasQuestion: !!question,
-    hasOptions: !!(optionA && optionB),
-    question: typeof question === 'string' ? question.slice(0, 50) + '...' : question,
-    optionA: typeof optionA === 'string' ? optionA.slice(0, 20) + '...' : optionA,
-    optionB: typeof optionB === 'string' ? optionB.slice(0, 20) + '...' : optionB,
-    isActive,
-    totalPool: totalPool?.toString()
-  })
 
   if (!question || !optionA || !optionB) {
     return (

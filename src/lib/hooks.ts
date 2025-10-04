@@ -119,16 +119,6 @@ export function useActiveContests() {
       refetchInterval: 15000, // Refetch every 15 seconds
     }
   })
-  
-  // Debug logging
-  console.log('🏭 useActiveContests Debug:', {
-    contractAddress: CONTEST_FACTORY_ADDRESS,
-    data: result.data,
-    isLoading: result.isLoading,
-    error: result.error?.message,
-    status: result.status
-  })
-  
   return result
 }
 
@@ -158,57 +148,20 @@ export function useFactoryStats() {
 
 // Hook for creating contests (admin only)
 export function useCreateContest() {
-  const { writeContract, data: hash, isPending, error: writeError } = useWriteContract({
-    mutation: {
-      onSuccess: (data) => {
-        console.log('✅ Transaction submitted successfully!')
-        console.log('Transaction hash:', data)
-      },
-      onError: (error) => {
-        console.error('❌ Transaction submission failed:', error)
-        console.error('Error details:', {
-          name: error.name,
-          message: error.message,
-          cause: error.cause
-        })
-      }
-    }
-  })
+  const { writeContract, data: hash, isPending, error: writeError } = useWriteContract()
   
   const { isLoading, isSuccess, error: receiptError } = useWaitForTransactionReceipt({
     hash,
   })
 
   const createContest = (question: string, optionA: string, optionB: string) => {
-    try {
-      console.log('🚀 Starting contract write...')
-      console.log('📍 Contract address:', CONTEST_FACTORY_ADDRESS)
-      console.log('📝 Function args:', { question, optionA, optionB })
-      console.log('⏳ Calling writeContract...')
-      
-      writeContract({
-        address: CONTEST_FACTORY_ADDRESS,
-        abi: CONTEST_FACTORY_ABI,
-        functionName: 'createContest',
-        args: [question, optionA, optionB],
-      })
-      
-      console.log('✨ Contract write call completed')
-    } catch (error) {
-      console.error('💥 Error in createContest function:', error)
-      throw error
-    }
+    writeContract({
+      address: CONTEST_FACTORY_ADDRESS,
+      abi: CONTEST_FACTORY_ABI,
+      functionName: 'createContest',
+      args: [question, optionA, optionB],
+    })
   }
-
-  // Log state changes
-  console.log('🔍 Hook state:', {
-    hash,
-    isPending,
-    isLoading,
-    isSuccess,
-    writeError: writeError?.message,
-    receiptError: receiptError?.message
-  })
 
   return {
     createContest,

@@ -157,24 +157,7 @@ export default function HomePage() {
             </motion.div>
 
             {/* Quick Contests Preview */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="mt-8 sm:mt-12"
-            >
-              <p className="text-white/60 text-sm sm:text-base mb-4">
-                🔥 Active contests happening now
-              </p>
-              <Link href="/contests">
-                <Button 
-                  variant="ghost" 
-                  className="text-white/80 hover:text-white hover:bg-white/10 text-sm"
-                >
-                  See all contests <ArrowRight className="h-4 w-4 ml-2" />
-                </Button>
-              </Link>
-            </motion.div>
+           
           </div>
         </div>
       </div>

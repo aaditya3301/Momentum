@@ -12,16 +12,6 @@ interface ContestListProps {
 
 export function ContestList({ title = "Active Contests", showOnlyActive = true }: ContestListProps) {
   const { data: contests, isLoading, error } = useActiveContests()
-  
-  // Debug logging
-  console.log('🎯 ContestList Debug:', {
-    contests,
-    isLoading,
-    error: error?.message,
-    contestsType: typeof contests,
-    contestsIsArray: Array.isArray(contests),
-    contestsLength: Array.isArray(contests) ? contests.length : 'not array'
-  })
 
   if (isLoading) {
     return (

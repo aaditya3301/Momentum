@@ -41,11 +41,9 @@ export const switchToHellaNetwork = async (): Promise<boolean> => {
         })
         return true
       } catch (addError) {
-        console.error('Failed to add Hella network:', addError)
         return false
       }
     } else {
-      console.error('Failed to switch to Hella network:', switchError)
       return false
     }
   }
@@ -74,7 +72,6 @@ export const addHellaTokenToWallet = async (tokenAddress: string, symbol: string
     })
     return true
   } catch (error) {
-    console.error('Failed to add token to wallet:', error)
     return false
   }
 }

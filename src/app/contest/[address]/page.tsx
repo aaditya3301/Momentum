@@ -8,7 +8,6 @@ import { formatEther } from 'viem'
 import { StakeInterface } from '@/components/StakeInterface'
 import { ClaimButton } from '@/components/ClaimButton'
 import { TokenSetup } from '@/components/TokenSetup'
-import DiagnosticInfo from '@/components/DiagnosticInfo'
 import { useContestInfo, useUserStakes, useUSDCBalance } from '@/lib/hooks'
 import { useAccount } from 'wagmi'
 
@@ -61,20 +60,7 @@ export default function ContestDetailPage() {
   const { data: balance } = useUSDCBalance(address)
   const userBalance = (balance as bigint) || BigInt(0)
 
-  // Debug logging
-  console.log('🎯 Contest Detail Debug:', {
-    contestAddress,
-    address,
-    question,
-    optionA,
-    optionB,
-    isActive,
-    isResolved,
-    totalPool: totalPool?.toString(),
-    userStakes,
-    userBalance: userBalance.toString(),
-    hasLowBalance: userBalance < BigInt(1000000)
-  })
+  // Contest data loaded
 
   // Loading state
   if (!question || !optionA || !optionB) {
@@ -115,10 +101,9 @@ export default function ContestDetailPage() {
   )
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 pt-24 pb-16">
+    <div className="min-h-screen bg-black pt-24 pb-16">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
-          <DiagnosticInfo />
           {/* Back Button */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -157,10 +142,6 @@ export default function ContestDetailPage() {
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
               {question}
             </h1>
-            
-            <p className="text-gray-400 text-sm">
-              Contest: {contestAddress}
-            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

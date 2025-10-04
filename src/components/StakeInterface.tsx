@@ -1,7 +1,7 @@
-'use client'
+
 
 import { useState } from 'react'
-import { useAccount } from 'wagmi'
+import  { useAccount } from 'wagmi'
 import { useUSDCBalance, useUSDCAllowance, useUSDCApproval, useStake } from '@/lib/hooks'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -35,6 +35,7 @@ export function StakeInterface({
   isActive,
   isResolved
 }: StakeInterfaceProps) {
+
   const { address } = useAccount()
   const [selectedOption, setSelectedOption] = useState<'A' | 'B' | null>(null)
   const [stakeAmount, setStakeAmount] = useState('')
@@ -52,18 +53,6 @@ export function StakeInterface({
 
   const validation = validateStakeAmount(stakeAmount, userBalance)
 
-  // Debug logging
-    console.log('💰 StakeInterface Debug:', {
-    address,
-    balance,
-    stakeAmount,
-    formattedBalance: balance ? formatUSDC(balance) : 'N/A',
-    mockUSDCAddress: MOCK_USDC_ADDRESS,
-    contestAddress,
-    validationResult: validateStakeAmount(stakeAmount, balance),
-    chainId: window.ethereum?.chainId,
-    networkId: window.ethereum?.networkVersion
-  })
   const isValidAmount = validation.isValid && stakeAmount !== ''
 
   // Calculate potential ROI
