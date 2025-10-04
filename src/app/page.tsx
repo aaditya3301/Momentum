@@ -1,17 +1,26 @@
 'use client'
- 
+
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { Zap, ArrowRight, Play, Trophy, Users, TrendingUp } from 'lucide-react'
+import { Zap, ArrowRight, Play, Trophy, Users, TrendingUp, Coins, Loader2, CheckCircle } from 'lucide-react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
-
-// Dynamically import LiquidEther to avoid SSR issues
+import { useAccount } from 'wagmi'
+import { useUSDCFaucet, useUSDCBalance } from '@/lib/hooks'
+import { formatUSDC } from '@/lib/contract-utils'// Dynamically import LiquidEther to avoid SSR issues
 const LiquidEther = dynamic(() => import('@/components/LiquidEtherBackground'), {
   ssr: false,
 })
 
 export default function HomePage() {
+  const { address, isConnected } = useAccount()
+  const { getFaucetTokens, isLoading: faucetLoading, isSuccess: faucetSuccess } = useUSDCFaucet()
+  const { data: balance } = useUSDCBalance(address)
+  
+  const handleFaucet = () => {
+    getFaucetTokens()
+  }
+
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Liquid Ether Background - Only on Homepage */}
@@ -154,10 +163,54 @@ export default function HomePage() {
                   Create Contest
                 </Link>
               </Button>
+              
+              {/* Faucet Button */}
+              {isConnected && (
+                <Button 
+                  onClick={handleFaucet}
+                  disabled={faucetLoading}
+                  variant="outline" 
+                  size="xl"
+                  className="border-2 border-green-400/30 bg-green-400/10 backdrop-blur-sm text-green-400 hover:bg-green-400/20 hover:border-green-400/50 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
+                >
+                  {faucetLoading ? (
+                    <>
+                      <Loader2 className="h-5 w-5 sm:h-6 sm:w-6 mr-2 sm:mr-3 animate-spin" />
+                      Getting Tokens...
+                    </>
+                  ) : faucetSuccess ? (
+                    <>
+                      <CheckCircle className="h-5 w-5 sm:h-6 sm:w-6 mr-2 sm:mr-3" />
+                      Tokens Received!
+                    </>
+                  ) : (
+                    <>
+                      <Coins className="h-5 w-5 sm:h-6 sm:w-6 mr-2 sm:mr-3" />
+                      Get 100 mUSDC
+                    </>
+                  )}
+                </Button>
+              )}
             </motion.div>
 
-            {/* Quick Contests Preview */}
-           
+            {/* Quick Contests Preview & Balance */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="mt-8 sm:mt-12 space-y-4"
+            >
+              {/* Balance Display for Connected Users */}
+              {isConnected && balance && (
+                <div className="text-center">
+                  <p className="text-white/60 text-sm sm:text-base mb-2">
+                    Your Balance: <span className="text-green-400 font-semibold">${formatUSDC(balance)} mUSDC</span>
+                  </p>
+                </div>
+              )}
+        
+             
+            </motion.div>
           </div>
         </div>
       </div>

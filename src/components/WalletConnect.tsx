@@ -2,7 +2,6 @@
 
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { useAccount } from 'wagmi'
-import { TokenSetup } from './TokenSetup'
 import { Card, CardContent } from '@/components/ui/card'
 import { Wallet } from 'lucide-react'
 
@@ -41,8 +40,6 @@ export function WalletConnect() {
         </div>
         <ConnectButton />
       </div>
-      
-      <TokenSetup />
     </div>
   )
 }

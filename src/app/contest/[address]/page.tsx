@@ -7,7 +7,6 @@ import { useParams } from 'next/navigation'
 import { formatEther } from 'viem'
 import { StakeInterface } from '@/components/StakeInterface'
 import { ClaimButton } from '@/components/ClaimButton'
-import { TokenSetup } from '@/components/TokenSetup'
 import { useContestInfo, useUserStakes, useUSDCBalance } from '@/lib/hooks'
 import { useAccount } from 'wagmi'
 
@@ -290,17 +289,6 @@ export default function ContestDetailPage() {
                     isActive={isActive || false}
                     isResolved={isResolved || false}
                   />
-                </motion.div>
-              )}
-
-              {/* Token Setup - Show when user has low balance */}
-              {isActive && address && userBalance < BigInt(1000000) && (
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.45 }}
-                >
-                  <TokenSetup />
                 </motion.div>
               )}
 

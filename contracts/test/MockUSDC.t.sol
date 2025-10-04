@@ -33,7 +33,7 @@ contract MockUSDCTest is Test {
     }
     
     function testFaucetMaxLimit() public {
-        uint256 maxAmount = 10 * 10**6; // 10 USDC
+        uint256 maxAmount = 100 * 10**6; // 100 USDC
         
         vm.prank(user);
         usdc.faucet(maxAmount);

@@ -29,7 +29,7 @@ contract MockUSDC is ERC20, Ownable {
      * @param amount Amount of tokens to mint (in wei, so 1000000 = 1 USDC)
      */
     function faucet(uint256 amount) external {
-        require(amount <= 10 * 10**DECIMALS, "Max 10 USDC per faucet call");
+        require(amount <= 100 * 10**DECIMALS, "Max 100 USDC per faucet call");
         _mint(msg.sender, amount);
     }
     
