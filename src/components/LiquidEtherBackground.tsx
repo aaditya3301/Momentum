@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
 import React, { useEffect, useRef } from 'react';
@@ -534,20 +535,34 @@ export default function LiquidEther({
 }
 `;
 
-    type Uniforms = Record<string, { value: any }>;
+    type Uniforms = Record<string, { value: unknown }>;
+
+    interface ShaderPassProps {
+      material?: {
+        uniforms?: Uniforms;
+        vertexShader?: string;
+        fragmentShader?: string;
+      };
+      geometry?: THREE.BufferGeometry;
+      camera?: THREE.Camera;
+      output?: THREE.WebGLRenderTarget;
+      output0?: THREE.WebGLRenderTarget;
+      output1?: THREE.WebGLRenderTarget;
+    }
 
     class ShaderPass {
-      props: any;
+      props: ShaderPassProps;
       uniforms?: Uniforms;
       scene: THREE.Scene | null = null;
       camera: THREE.Camera | null = null;
       material: THREE.RawShaderMaterial | null = null;
       geometry: THREE.BufferGeometry | null = null;
       plane: THREE.Mesh | null = null;
-      constructor(props: any) {
+      constructor(props: ShaderPassProps) {
         this.props = props || {};
         this.uniforms = this.props.material?.uniforms;
       }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       init(..._args: any[]) {
         this.scene = new THREE.Scene();
         this.camera = new THREE.Camera();
@@ -558,6 +573,7 @@ export default function LiquidEther({
           this.scene.add(this.plane);
         }
       }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       update(..._args: any[]) {
         if (!Common.renderer || !this.scene || !this.camera) return;
         Common.renderer.setRenderTarget(this.props.output || null);
@@ -584,7 +600,7 @@ export default function LiquidEther({
           },
           output: simProps.dst
         });
-        this.uniforms = this.props.material.uniforms;
+        this.uniforms = this.props.material?.uniforms;
         this.init();
       }
       init() {

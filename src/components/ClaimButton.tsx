@@ -80,12 +80,12 @@ export function ClaimButton({
               Winner: Option {winningText}
             </p>
             <p className="text-gray-600 dark:text-gray-400">
-              "{winningOption}"
+              &ldquo;{winningOption}&rdquo;
             </p>
           </div>
           <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
             <p className="text-gray-600 dark:text-gray-400">
-              You didn't win this time, but thanks for participating!
+              You didn&apos;t win this time, but thanks for participating!
             </p>
           </div>
         </CardContent>
@@ -108,7 +108,7 @@ export function ClaimButton({
               Winner: Option {winningText}
             </p>
             <p className="text-gray-600 dark:text-gray-400">
-              "{winningOption}"
+              &ldquo;{winningOption}&rdquo;
             </p>
           </div>
           

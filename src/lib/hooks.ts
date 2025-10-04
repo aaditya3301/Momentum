@@ -3,8 +3,8 @@
  * Provides easy-to-use hooks for all contract operations
  */
 
-import { useReadContract, useWriteContract, useWaitForTransactionReceipt, useAccount, useWatchContractEvent } from 'wagmi'
-import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useReadContract, useWriteContract, useWaitForTransactionReceipt, useWatchContractEvent } from 'wagmi'
+import { useQueryClient } from '@tanstack/react-query'
 import { useState, useEffect } from 'react'
 import { 
   MOCK_USDC_ADDRESS, 
@@ -12,13 +12,7 @@ import {
   MOCK_USDC_ABI,
   CONTEST_FACTORY_ABI,
   CONTEST_ABI,
-  FAUCET_AMOUNT,
-  formatUSDC,
-  parseUSDC,
-  type ContestInfo,
-  type UserStakes,
-  type FactoryStats,
-  type WinningOption
+  FAUCET_AMOUNT
 } from '../../contracts/abis/contracts'
 
 // Hook for reading MockUSDC balance
@@ -135,7 +129,7 @@ export function useFactoryStats() {
     }
   })
 
-  const stats: FactoryStats | undefined = data && Array.isArray(data) ? {
+  const stats = data && Array.isArray(data) ? {
     totalContests: data[0] as bigint,
     activeContests: data[1] as bigint,
     resolvedContests: data[2] as bigint,
@@ -267,7 +261,7 @@ export function useUserStakes(contestAddress?: `0x${string}`, userAddress?: `0x$
     }
   })
 
-  const stakes: UserStakes | undefined = data && Array.isArray(data) ? {
+  const stakes = data && Array.isArray(data) ? {
     onA: data[0] as bigint,
     onB: data[1] as bigint,
     total: data[2] as bigint
@@ -376,13 +370,13 @@ export function useContestUpdates(contestAddress?: `0x${string}`) {
 
 // Hook for watching contract events
 export function useContestEvents(contestAddress?: `0x${string}`) {
-  const [events, setEvents] = useState<any[]>([])
+  const [events, setEvents] = useState<unknown[]>([])
 
   useWatchContractEvent({
     address: contestAddress,
     abi: CONTEST_ABI,
     eventName: 'Staked',
-    onLogs(logs) {
+    onLogs(logs: unknown[]) {
       setEvents(prev => [...prev, ...logs])
     },
   })
@@ -391,7 +385,7 @@ export function useContestEvents(contestAddress?: `0x${string}`) {
     address: contestAddress,
     abi: CONTEST_ABI,
     eventName: 'ContestResolved',
-    onLogs(logs) {
+    onLogs(logs: unknown[]) {
       setEvents(prev => [...prev, ...logs])
     },
   })
@@ -400,7 +394,7 @@ export function useContestEvents(contestAddress?: `0x${string}`) {
     address: contestAddress,
     abi: CONTEST_ABI,
     eventName: 'WinningsClaimed',
-    onLogs(logs) {
+    onLogs(logs: unknown[]) {
       setEvents(prev => [...prev, ...logs])
     },
   })

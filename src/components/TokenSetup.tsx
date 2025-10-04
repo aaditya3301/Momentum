@@ -33,7 +33,7 @@ export function TokenSetup() {
       })
       setShowTokenAdded(true)
       setTimeout(() => setShowTokenAdded(false), 3000)
-    } catch (error) {
+    } catch {
       // Failed to add token
     }
   }
@@ -148,9 +148,4 @@ export function TokenSetup() {
   )
 }
 
-// Extend Window interface for TypeScript
-declare global {
-  interface Window {
-    ethereum?: any
-  }
-}
+// Remove window.ethereum declaration as it conflicts with wagmi types

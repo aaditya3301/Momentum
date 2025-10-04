@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { Zap, ArrowRight, Play, Trophy, Users, TrendingUp, Coins, Loader2, CheckCircle } from 'lucide-react'
+import { ArrowRight, Play, Trophy, Users, TrendingUp, Coins, Loader2, CheckCircle } from 'lucide-react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { useAccount } from 'wagmi'

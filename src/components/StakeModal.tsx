@@ -111,7 +111,7 @@ export function StakeModal({ isOpen, onClose, option, optionLabel, isOptionA }: 
                       Stake Successful!
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400">
-                      You've staked {formatUSDC(parseFloat(amount) || 0)} on this option.
+                      You&apos;ve staked {formatUSDC(parseFloat(amount) || 0)} on this option.
                     </p>
                   </motion.div>
                 ) : (
@@ -213,7 +213,7 @@ export function StakeModal({ isOpen, onClose, option, optionLabel, isOptionA }: 
 
                     {/* Info */}
                     <div className="text-xs text-gray-500 dark:text-gray-400 text-center">
-                      Stakes are locked until the contest ends. Winners share the losing side's pot.
+                      Stakes are locked until the contest ends. Winners share the losing side&apos;s pot.
                     </div>
                   </>
                 )}

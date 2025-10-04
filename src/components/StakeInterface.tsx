@@ -14,8 +14,6 @@ import {
   calculateROI 
 } from '@/lib/contract-utils'
 import { ArrowRight, Loader2, AlertCircle, CheckCircle, TrendingUp } from 'lucide-react'
-import { MOCK_USDC_ADDRESS } from '../../contracts/abis/contracts'
-
 interface StakeInterfaceProps {
   contestAddress: `0x${string}`
   optionA: string
@@ -39,7 +37,6 @@ export function StakeInterface({
   const { address } = useAccount()
   const [selectedOption, setSelectedOption] = useState<'A' | 'B' | null>(null)
   const [stakeAmount, setStakeAmount] = useState('')
-  const [showApproval, setShowApproval] = useState(false)
 
   const { data: balance } = useUSDCBalance(address)
   const { data: allowance } = useUSDCAllowance(address, contestAddress)

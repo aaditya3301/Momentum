@@ -55,9 +55,8 @@ export default function ContestDetailPage() {
   const userStakesQuery = useUserStakes(contestAddress)
   const userStakes = userStakesQuery.data
   
-  // Check user's mUSDC balance
-  const { data: balance } = useUSDCBalance(address)
-  const userBalance = (balance as bigint) || BigInt(0)
+  // Check user's mUSDC balance - removing unused variable
+  useUSDCBalance(address)
 
   // Contest data loaded
 
@@ -91,13 +90,8 @@ export default function ContestDetailPage() {
   const percentageA = total > 0 ? Number((totalStakedA * BigInt(100)) / total) : 0
   const percentageB = total > 0 ? Number((totalStakedB * BigInt(100)) / total) : 0
 
-  // Calculate derived values
-  const isLive = isActive && !isResolved
+  // Calculate derived values - removing unused variables
   const winner = winnerIsA === true ? 0 : winnerIsA === false ? 1 : undefined
-  const canClaim = isResolved && userStakes && (
-    (winner === 0 && userStakes.onA > 0) || 
-    (winner === 1 && userStakes.onB > 0)
-  )
 
   return (
     <div className="min-h-screen bg-black pt-24 pb-16">

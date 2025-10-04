@@ -46,9 +46,7 @@ export const config = getDefaultConfig({
 export const wagmiConfig = createConfig({
   chains: [hellaTestnet],
   transports: {
-    [hellaTestnet.id]: http(hellaRpcUrl, {
-      pollingInterval: 4_000, // Poll every 4 seconds
-    }),
+    [hellaTestnet.id]: http(hellaRpcUrl),
   },
 })
 

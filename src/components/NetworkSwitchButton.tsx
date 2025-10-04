@@ -25,7 +25,7 @@ export function NetworkSwitchButton({ className, variant = 'outline' }: NetworkS
       if (success) {
         // Network switched successfully
       }
-    } catch (error) {
+    } catch {
       // Network switch failed
     } finally {
       setIsSwitching(false)

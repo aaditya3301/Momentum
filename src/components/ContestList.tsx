@@ -10,7 +10,7 @@ interface ContestListProps {
   showOnlyActive?: boolean
 }
 
-export function ContestList({ title = "Active Contests", showOnlyActive = true }: ContestListProps) {
+export function ContestList({ title = "Active Contests" }: ContestListProps) {
   const { data: contests, isLoading, error } = useActiveContests()
 
   if (isLoading) {

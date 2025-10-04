@@ -64,7 +64,7 @@ Momentum transforms traditional prediction markets by combining social engagemen
 
 **1. Clone and install dependencies:**
 ```bash
-git clone https://github.com/satvik-svg/Momentum.git
+git clone https://github.com/aaditya3301/Momentum.git
 cd Momentum
 npm install
 ```

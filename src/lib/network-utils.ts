@@ -31,16 +31,16 @@ export const switchToHellaNetwork = async (): Promise<boolean> => {
       params: [{ chainId: HELLA_NETWORK_CONFIG.chainId }],
     })
     return true
-  } catch (switchError: any) {
+  } catch (switchError: unknown) {
     // If network doesn't exist (error code 4902), add it
-    if (switchError.code === 4902) {
+    if (switchError && typeof switchError === 'object' && 'code' in switchError && switchError.code === 4902) {
       try {
         await window.ethereum.request({
           method: 'wallet_addEthereumChain',
           params: [HELLA_NETWORK_CONFIG],
         })
         return true
-      } catch (addError) {
+      } catch {
         return false
       }
     } else {
@@ -71,7 +71,7 @@ export const addHellaTokenToWallet = async (tokenAddress: string, symbol: string
       },
     })
     return true
-  } catch (error) {
+  } catch {
     return false
   }
 }

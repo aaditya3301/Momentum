@@ -20,8 +20,6 @@ import {
   Plus, 
   Shield, 
   TrendingUp, 
-  Users, 
-  DollarSign,
   CheckCircle,
   Loader2,
   AlertCircle,
@@ -42,8 +40,8 @@ export default function AdminPage() {
   const { data: factoryStats } = useFactoryStats()
   const { createContest, isLoading: isCreating, isSuccess: isCreated, error: createError, hash } = useCreateContest()
   
-  // Test contract connectivity
-  const { data: activeContests, error: contractReadError } = useActiveContests()
+  // Test contract connectivity - removing unused variables
+  useActiveContests()
   
   const isUserAdmin = isAdmin(address)
 
