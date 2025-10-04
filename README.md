@@ -1,4 +1,4 @@
-# Momentum
+# Momentum 🎯
 
 A decentralized social prediction protocol built on HeLa blockchain that enables users to create prediction contests, stake cryptocurrency on outcomes, and earn rewards based on collective intelligence.
 
@@ -6,36 +6,36 @@ A decentralized social prediction protocol built on HeLa blockchain that enables
 
 Momentum transforms traditional prediction markets by combining social engagement with blockchain transparency. The platform allows users to create contests on any topic, stake USDC tokens on their preferred outcomes, and automatically distributes rewards to winners through smart contracts.
 
-## Key Features
+## Key Features ✨
 
-- *Decentralized Contest Creation*: Users can create prediction contests on any topic with customizable parameters
-- *Stake-Based Voting*: Participants stake USDC tokens on their predicted outcomes
-- *Automated Settlement*: Smart contracts handle reward distribution based on staking patterns
-- *Transparent Results*: All transactions and outcomes are recorded immutably on HeLa blockchain
-- *Social Interface*: Community-driven platform with real-time engagement
+- **Decentralized Contest Creation**: Users can create prediction contests on any topic with customizable parameters
+- **Stake-Based Voting**: Participants stake USDC tokens on their predicted outcomes
+- **Automated Settlement**: Smart contracts handle reward distribution based on staking patterns
+- **Transparent Results**: All transactions and outcomes are recorded immutably on HeLa blockchain
+- **Social Interface**: Community-driven platform with real-time engagement
 
-## Technical Architecture
+## Technical Architecture 🏗️
 
 ### Frontend Stack
-- *Framework*: Next.js 15 with TypeScript
-- *Styling*: Tailwind CSS with responsive design
-- *Web3 Integration*: Wagmi v2, RainbowKit, Viem
-- *UI Components*: Custom components with Radix UI primitives
-- *State Management*: React hooks with blockchain state synchronization
+- **Framework**: Next.js 15 with TypeScript
+- **Styling**: Tailwind CSS with responsive design
+- **Web3 Integration**: Wagmi v2, RainbowKit, Viem
+- **UI Components**: Custom components with Radix UI primitives
+- **State Management**: React hooks with blockchain state synchronization
 
 ### Smart Contracts
-- *Network*: HeLa Testnet (Chain ID: 666888)
-- *Language*: Solidity 0.8.20
-- *Development*: Foundry framework
-- *Testing*: Comprehensive test suite with Forge
+- **Network**: HeLa Testnet (Chain ID: 666888)
+- **Language**: Solidity 0.8.20
+- **Development**: Foundry framework
+- **Testing**: Comprehensive test suite with Forge
 
 ### Deployed Contracts
-- *MockUSDC*: 0xa6559C3496c50fd09Cffbc36946E3278A909B18e
-- *ContestFactory*: 0x4452262C3c480F0B759f119489354c4D1ae5f8d8
+- **MockUSDC**: `0xa6559C3496c50fd09Cffbc36946E3278A909B18e`
+- **ContestFactory**: `0x4452262C3c480F0B759f119489354c4D1ae5f8d8`
 
-## Project Structure
+## Project Structure 📁
 
-
+```
 ├── src/
 │   ├── app/                   # Next.js app router
 │   │   ├── admin/            # Contest management interface
@@ -51,9 +51,9 @@ Momentum transforms traditional prediction markets by combining social engagemen
 │   ├── test/               # Contract tests
 │   └── abis/               # Generated ABIs and addresses
 └── public/                 # Static assets
+```
 
-
-## Installation and Setup
+## Installation and Setup 🚀
 
 ### Prerequisites
 - Node.js 18+ and npm
@@ -61,79 +61,81 @@ Momentum transforms traditional prediction markets by combining social engagemen
 - HeLa testnet HLUSD tokens for transactions
 
 ### Frontend Development
-1. *Clone and install dependencies:*
-   bash
-   git clone https://github.com/aaditya3301/Momentum.git
-   cd Momentum
-   npm install
-   
 
-2. *Configure environment variables:*
-   bash
-   cp .env.local.example .env.local
-   # Update with your contract addresses and configuration
-   
+**1. Clone and install dependencies:**
+```bash
+git clone https://github.com/satvik-svg/Momentum.git
+cd Momentum
+npm install
+```
 
-3. *Start development server:*
-   bash
-   npm run dev
-   
+**2. Configure environment variables:**
+```bash
+cp .env.local.example .env.local
+# Update with your contract addresses and configuration
+```
 
-4. *Access the application:*
-   Navigate to [http://localhost:3000](http://localhost:3000)
+**3. Start development server:**
+```bash
+npm run dev
+```
+
+**4. Access the application:**
+Navigate to [http://localhost:3000](http://localhost:3000)
 
 ### Smart Contract Development
-1. *Navigate to contracts directory:*
-   bash
-   cd contracts
-   
 
-2. *Install Foundry dependencies:*
-   bash
-   forge install
-   
+**1. Navigate to contracts directory:**
+```bash
+cd contracts
+```
 
-3. *Compile contracts:*
-   bash
-   forge build
-   
+**2. Install Foundry dependencies:**
+```bash
+forge install
+```
 
-4. *Run tests:*
-   bash
-   forge test
-   
+**3. Compile contracts:**
+```bash
+forge build
+```
 
-5. *Deploy to HeLa testnet:*
-   bash
-   forge script script/Deploy.s.sol --rpc-url $HELLA_RPC_URL --broadcast
-   
+**4. Run tests:**
+```bash
+forge test
+```
 
-## Network Configuration
+**5. Deploy to HeLa testnet:**
+```bash
+forge script script/Deploy.s.sol --rpc-url $HELLA_RPC_URL --broadcast
+```
+
+## Network Configuration 🌐
 
 ### HeLa Testnet Setup
 Add HeLa testnet to your wallet with these parameters:
-- *Network Name*: HeLa Testnet
-- *RPC URL*: https://testnet-rpc.helachain.com
-- *Chain ID*: 666888
-- *Currency Symbol*: HLUSD
-- *Block Explorer*: https://testnet-blockexplorer.helachain.com
+- **Network Name**: HeLa Testnet
+- **RPC URL**: https://testnet-rpc.helachain.com
+- **Chain ID**: 666888
+- **Currency Symbol**: HLUSD
+- **Block Explorer**: https://testnet-blockexplorer.helachain.com
 
-## Application Features
+## Application Features 💡
 
 ### Core Functionality
-- *Contest Creation*: Admin interface for deploying new prediction contests
-- *Staking Interface*: Users can stake USDC tokens on preferred outcomes
-- *Real-time Updates*: Live contest status and countdown timers
-- *Reward Distribution*: Automated payout system for winners
-- *Transaction History*: Complete audit trail of all activities
+- **Contest Creation**: Admin interface for deploying new prediction contests
+- **Staking Interface**: Users can stake USDC tokens on preferred outcomes
+- **Real-time Updates**: Live contest status and countdown timers
+- **Reward Distribution**: Automated payout system for winners
+- **Transaction History**: Complete audit trail of all activities
 
 ### User Interface
-- *Responsive Design*: Optimized for desktop and mobile devices
-- *Web3 Integration*: Seamless wallet connection and transaction handling
-- *Modern UI*: Clean, professional interface with intuitive navigation
-- *Loading States*: Comprehensive feedback during blockchain interactions
+- **Responsive Design**: Optimized for desktop and mobile devices
+- **Web3 Integration**: Seamless wallet connection and transaction handling
+- **Modern UI**: Clean, professional interface with intuitive navigation
+- **Loading States**: Comprehensive feedback during blockchain interactions
 
-## Smart Contract Architecture
+## Smart Contract Architecture 📝
 
 ### ContestFactory Contract
 - Manages contest creation and administration
@@ -150,17 +152,17 @@ Add HeLa testnet to your wallet with these parameters:
 - Faucet functionality for obtaining test tokens
 - Standard token interface for staking operations
 
-## Security Features
+## Security Features 🔒
 
-- *Smart Contract Audited Logic*: Secure handling of funds and contest resolution
-- *User Confirmation Required*: All transactions require explicit user approval
-- *Transparent Operations*: All activities recorded on blockchain
-- *No Admin Backdoors*: Contest outcomes determined by community staking
+- **Smart Contract Audited Logic**: Secure handling of funds and contest resolution
+- **User Confirmation Required**: All transactions require explicit user approval
+- **Transparent Operations**: All activities recorded on blockchain
+- **No Admin Backdoors**: Contest outcomes determined by community staking
 
-## Development Workflow
+## Development Workflow 🔧
 
 ### Testing
-bash
+```bash
 # Frontend tests
 npm test
 
@@ -169,40 +171,41 @@ cd contracts && forge test
 
 # Integration tests
 npm run test:integration
-
+```
 
 ### Deployment
-bash
+```bash
 # Frontend deployment
 npm run build
 npm run start
 
 # Smart contract deployment
 cd contracts && forge script script/Deploy.s.sol --broadcast
-
+```
 
 ## API Integration
 
 The application integrates with:
-- *HeLa Blockchain*: Direct smart contract interaction
-- *IPFS*: Decentralized storage for contest metadata
-- *Web3 Wallets*: MetaMask and other compatible wallets
-## Use Cases
+- **HeLa Blockchain**: Direct smart contract interaction
+- **IPFS**: Decentralized storage for contest metadata
+- **Web3 Wallets**: MetaMask and other compatible wallets
+
+## Use Cases 📊
 
 ### Prediction Markets
-- *Technology*: Software release dates, adoption metrics, performance benchmarks
-- *Finance*: Market movements, economic indicators, cryptocurrency trends
-- *Politics*: Election outcomes, policy decisions, approval ratings
-- *Entertainment*: Award show winners, box office performance, streaming metrics
-- *Sports*: Game outcomes, season performance, player statistics
+- **Technology**: Software release dates, adoption metrics, performance benchmarks
+- **Finance**: Market movements, economic indicators, cryptocurrency trends
+- **Politics**: Election outcomes, policy decisions, approval ratings
+- **Entertainment**: Award show winners, box office performance, streaming metrics
+- **Sports**: Game outcomes, season performance, player statistics
 
 ### Business Applications
-- *Market Research*: Consumer preference prediction and trend analysis
-- *Risk Assessment*: Crowdsourced probability estimation for business decisions
-- *Product Launch*: Community sentiment analysis and success prediction
-- *Investment Decisions*: Collective intelligence for portfolio management
+- **Market Research**: Consumer preference prediction and trend analysis
+- **Risk Assessment**: Crowdsourced probability estimation for business decisions
+- **Product Launch**: Community sentiment analysis and success prediction
+- **Investment Decisions**: Collective intelligence for portfolio management
 
-## Contributing
+## Contributing 🤝
 
 ### Development Guidelines
 1. Fork the repository and create a feature branch
@@ -212,12 +215,12 @@ The application integrates with:
 5. Submit pull request with detailed description
 
 ### Code Standards
-- *Frontend*: ESLint configuration with TypeScript strict mode
-- *Smart Contracts*: Solidity style guide compliance
-- *Testing*: Minimum 80% code coverage requirement
-- *Documentation*: Inline comments and README updates
+- **Frontend**: ESLint configuration with TypeScript strict mode
+- **Smart Contracts**: Solidity style guide compliance
+- **Testing**: Minimum 80% code coverage requirement
+- **Documentation**: Inline comments and README updates
 
-## Roadmap
+## Roadmap 🗺️
 
 ### Phase 1: Core Platform (Current)
 - Basic contest creation and staking functionality
@@ -234,17 +237,17 @@ The application integrates with:
 - Cross-chain compatibility and bridge integration
 - Advanced analytics and reporting features
 
-## Support and Documentation
+## Support and Documentation 📚
 
 ### Getting Help
-- *Technical Issues*: Create GitHub issues with detailed reproduction steps
-- *General Questions*: Join community discussions and forums
-- *Security Concerns*: Report via responsible disclosure process
+- **Technical Issues**: Create GitHub issues with detailed reproduction steps
+- **General Questions**: Join community discussions and forums
+- **Security Concerns**: Report via responsible disclosure process
 
 ### Additional Resources
-- *Smart Contract Documentation*: Detailed API reference and examples
-- *Frontend Component Library*: Reusable UI components and patterns
-- *Development Tutorials*: Step-by-step guides for common tasks
+- **Smart Contract Documentation**: Detailed API reference and examples
+- **Frontend Component Library**: Reusable UI components and patterns
+- **Development Tutorials**: Step-by-step guides for common tasks
 
 ## License
 
