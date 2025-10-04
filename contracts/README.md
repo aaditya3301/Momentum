@@ -79,7 +79,7 @@ forge script script/VerifyDeployment.s.sol:VerifyDeploymentScript \
 
 ### For Users:
 
-1. **Get test USDC**: Call `MockUSDC.faucet(10000000000)` to get 10,000 USDC
+1. **Get test USDC**: Call `MockUSDC.faucet(10000000)` to get 10 USDC
 2. **Find contests**: Query `ContestFactory.getAllContests()`
 3. **Stake on outcome**: Approve USDC and call `Contest.stake(true/false, amount)`
 4. **Wait for resolution**: Contest ends after 24 hours

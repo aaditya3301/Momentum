@@ -12,6 +12,7 @@ import {
   MOCK_USDC_ABI,
   CONTEST_FACTORY_ABI,
   CONTEST_ABI,
+  FAUCET_AMOUNT,
   formatUSDC,
   parseUSDC,
   type ContestInfo,
@@ -61,6 +62,7 @@ export function useUSDCFaucet() {
       address: MOCK_USDC_ADDRESS,
       abi: MOCK_USDC_ABI,
       functionName: 'faucet',
+      args: [BigInt(FAUCET_AMOUNT)], // 10 USDC (6 decimals)
     })
   }
 
