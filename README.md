@@ -9,7 +9,7 @@ A decentralized social staking protocol built on Hella testnet. Predict outcomes
 - **Instant Settlement**: Winners automatically share the losing side's pot
 - **Wallet Integration**: Seamless connection with RainbowKit and wagmi
 - **Modern UI**: Built with Next.js, Tailwind CSS, and Framer Motion
-
+ 
 ## 🛠 Tech Stack
 
 - **Frontend**: Next.js 15, TypeScript, Tailwind CSS
