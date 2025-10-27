@@ -1,4 +1,4 @@
-# Momentum 🎯
+# Momentum
 
 A decentralized social prediction protocol built on HeLa blockchain that enables users to create prediction contests, stake cryptocurrency on outcomes, and earn rewards based on collective intelligence.
 
@@ -6,7 +6,7 @@ A decentralized social prediction protocol built on HeLa blockchain that enables
 
 Momentum transforms traditional prediction markets by combining social engagement with blockchain transparency. The platform allows users to create contests on any topic, stake USDC tokens on their preferred outcomes, and automatically distributes rewards to winners through smart contracts.
 
-## Key Features ✨
+## Key Features
 
 - **Decentralized Contest Creation**: Users can create prediction contests on any topic with customizable parameters
 - **Stake-Based Voting**: Participants stake USDC tokens on their predicted outcomes
@@ -14,7 +14,7 @@ Momentum transforms traditional prediction markets by combining social engagemen
 - **Transparent Results**: All transactions and outcomes are recorded immutably on HeLa blockchain
 - **Social Interface**: Community-driven platform with real-time engagement
 
-## Technical Architecture 🏗️
+## Technical Architecture
 
 ### Frontend Stack
 - **Framework**: Next.js 15 with TypeScript
@@ -32,8 +32,30 @@ Momentum transforms traditional prediction markets by combining social engagemen
 ### Deployed Contracts
 - **MockUSDC**: `0xa6559C3496c50fd09Cffbc36946E3278A909B18e`
 - **ContestFactory**: `0x4452262C3c480F0B759f119489354c4D1ae5f8d8`
+- **Admin Address**: `0x8b189BE61dc48428bb4b85A60520550670406Eeb`
 
-## Project Structure 📁
+## Live Deployment
+
+### Production URL
+  **Live Demo**: [https://momentum-ten-inky.vercel.app/](https://momentum-ten-inky.vercel.app/)
+
+### Deployed on HeLa Testnet (Chain ID: 666888)
+
+#### Example Contest
+| Type | Hash/Address |
+|------|--------------|
+| Contest Contract | `0x0b4d7c6ba8aa099f98bff0cb6cf98b711c7a9cd000cc2db2a63bbdee596c1713` |
+| Contest Creation Hash | `0x0b4d7c6ba8aa099f98bff0cb6cf98b711c7a9cd000cc2db2a63bbdee596c1713` |
+
+#### Example Transaction Hashes
+| Action | Transaction Hash |
+|--------|------------------|
+| Stake Transaction | `0xd2be0dfe0b931fa68d067bfab550e7d393b783f3d5a09c16694ccba4a0f3d9e9` |
+| mUSDC Faucet Claim | `0x803c96a7df042256a647cc178ffce1bbe123a65f8d2d9f118919417e5dc96ce5` |
+
+You can verify these transactions on the [HeLa Block Explorer](https://testnet-blockexplorer.helachain.com).
+
+## Project Structure
 
 ```
 ├── src/
@@ -53,7 +75,7 @@ Momentum transforms traditional prediction markets by combining social engagemen
 └── public/                 # Static assets
 ```
 
-## Installation and Setup 🚀
+## Installation and Setup
 
 ### Prerequisites
 - Node.js 18+ and npm
@@ -61,56 +83,54 @@ Momentum transforms traditional prediction markets by combining social engagemen
 - HeLa testnet HLUSD tokens for transactions
 
 ### Frontend Development
+1. **Clone and install dependencies:**
+   ```bash
+   git clone https://github.com/satvik-svg/Momentum.git
+   cd Momentum
+   npm install
+   ```
 
-**1. Clone and install dependencies:**
-```bash
-git clone https://github.com/aaditya3301/Momentum.git
-cd Momentum
-npm install
-```
+2. **Configure environment variables:**
+   ```bash
+   cp .env.local.example .env.local
+   # Update with your contract addresses and configuration
+   ```
 
-**2. Configure environment variables:**
-```bash
-cp .env.local.example .env.local
-# Update with your contract addresses and configuration
-```
+3. **Start development server:**
+   ```bash
+   npm run dev
+   ```
 
-**3. Start development server:**
-```bash
-npm run dev
-```
-
-**4. Access the application:**
-Navigate to [http://localhost:3000](http://localhost:3000)
+4. **Access the application:**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
 ### Smart Contract Development
+1. **Navigate to contracts directory:**
+   ```bash
+   cd contracts
+   ```
 
-**1. Navigate to contracts directory:**
-```bash
-cd contracts
-```
+2. **Install Foundry dependencies:**
+   ```bash
+   forge install
+   ```
 
-**2. Install Foundry dependencies:**
-```bash
-forge install
-```
+3. **Compile contracts:**
+   ```bash
+   forge build
+   ```
 
-**3. Compile contracts:**
-```bash
-forge build
-```
+4. **Run tests:**
+   ```bash
+   forge test
+   ```
 
-**4. Run tests:**
-```bash
-forge test
-```
+5. **Deploy to HeLa testnet:**
+   ```bash
+   forge script script/Deploy.s.sol --rpc-url $HELLA_RPC_URL --broadcast
+   ```
 
-**5. Deploy to HeLa testnet:**
-```bash
-forge script script/Deploy.s.sol --rpc-url $HELLA_RPC_URL --broadcast
-```
-
-## Network Configuration 🌐
+## Network Configuration
 
 ### HeLa Testnet Setup
 Add HeLa testnet to your wallet with these parameters:
@@ -120,7 +140,7 @@ Add HeLa testnet to your wallet with these parameters:
 - **Currency Symbol**: HLUSD
 - **Block Explorer**: https://testnet-blockexplorer.helachain.com
 
-## Application Features 💡
+## Application Features
 
 ### Core Functionality
 - **Contest Creation**: Admin interface for deploying new prediction contests
@@ -135,7 +155,7 @@ Add HeLa testnet to your wallet with these parameters:
 - **Modern UI**: Clean, professional interface with intuitive navigation
 - **Loading States**: Comprehensive feedback during blockchain interactions
 
-## Smart Contract Architecture 📝
+## Smart Contract Architecture
 
 ### ContestFactory Contract
 - Manages contest creation and administration
@@ -152,14 +172,14 @@ Add HeLa testnet to your wallet with these parameters:
 - Faucet functionality for obtaining test tokens
 - Standard token interface for staking operations
 
-## Security Features 🔒
+## Security Features
 
 - **Smart Contract Audited Logic**: Secure handling of funds and contest resolution
 - **User Confirmation Required**: All transactions require explicit user approval
 - **Transparent Operations**: All activities recorded on blockchain
 - **No Admin Backdoors**: Contest outcomes determined by community staking
 
-## Development Workflow 🔧
+## Development Workflow
 
 ### Testing
 ```bash
@@ -189,8 +209,7 @@ The application integrates with:
 - **HeLa Blockchain**: Direct smart contract interaction
 - **IPFS**: Decentralized storage for contest metadata
 - **Web3 Wallets**: MetaMask and other compatible wallets
-
-## Use Cases 📊
+## Use Cases
 
 ### Prediction Markets
 - **Technology**: Software release dates, adoption metrics, performance benchmarks
@@ -205,7 +224,7 @@ The application integrates with:
 - **Product Launch**: Community sentiment analysis and success prediction
 - **Investment Decisions**: Collective intelligence for portfolio management
 
-## Contributing 🤝
+## Contributing
 
 ### Development Guidelines
 1. Fork the repository and create a feature branch
@@ -220,7 +239,7 @@ The application integrates with:
 - **Testing**: Minimum 80% code coverage requirement
 - **Documentation**: Inline comments and README updates
 
-## Roadmap 🗺️
+## Roadmap
 
 ### Phase 1: Core Platform (Current)
 - Basic contest creation and staking functionality
@@ -237,7 +256,7 @@ The application integrates with:
 - Cross-chain compatibility and bridge integration
 - Advanced analytics and reporting features
 
-## Support and Documentation 📚
+## Support and Documentation
 
 ### Getting Help
 - **Technical Issues**: Create GitHub issues with detailed reproduction steps
