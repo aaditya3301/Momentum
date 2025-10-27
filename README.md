@@ -44,7 +44,7 @@ Momentum transforms traditional prediction markets by combining social engagemen
 #### Example Contest
 | Type | Hash/Address |
 |------|--------------|
-| Contest Contract | `0x0b4d7c6ba8aa099f98bff0cb6cf98b711c7a9cd000cc2db2a63bbdee596c1713` |
+| Contest Contract | `0x46599F8a7BFb6E0FD2dF8d316F9191d1b79e18e6` |
 | Contest Creation Hash | `0x0b4d7c6ba8aa099f98bff0cb6cf98b711c7a9cd000cc2db2a63bbdee596c1713` |
 
 #### Example Transaction Hashes
